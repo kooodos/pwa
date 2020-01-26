@@ -1,0 +1,33 @@
+.loadingCenter {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.img-card {
+  height: 190px!important;
+}
+
+
+.product-list {
+  min-width: 100%;
+  min-height: 350px;
+  overflow-x: auto;
+  display: flex
+}
+
+.product-list::-webkit-scrollbar {
+  display: none;
+}
+
+.card {
+  min-width: 300px;
+  margin: 5px!important;
+}
+
+.header-title{
+  margin-top: 20px!important;
+  margin-left: 5px!important;
+}

@@ -1,0 +1,21 @@
+
+.gradient-header {
+  background: rgb(224,57,151);
+  background: linear-gradient(143deg, rgba(224,57,151,1) 0%, rgba(191,0,166,1) 100%)!important;
+  height: 37px;
+  color: white;
+}
+
+.gradient-header-title {
+  padding-top: 8px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.basket_icon {
+  padding: .78571429em 1em .78571429em!important;
+}
+
+.basket_label {
+  background-color: white!important;
+}

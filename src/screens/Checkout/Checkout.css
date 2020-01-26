@@ -1,0 +1,67 @@
+/* global.css */
+@media only screen and (max-width: 768px) {
+  .hideOnMobile {
+    display: none!important;
+  }
+}
+
+
+.loadingCenter {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.img-card {
+  height: 190px!important;
+}
+
+
+.credit-card-list {
+  min-width: 100%;
+  min-height: 250px;
+  overflow-x: auto;
+  display: flex
+}
+
+.credit-card-list::-webkit-scrollbar {
+  display: none;
+}
+
+.card {
+  min-width: 300px;
+  margin: 5px!important;
+}
+
+.remove-card {
+  margin: 10px!important;
+}
+
+.credit-card-loader {
+  height: 190px;
+  width: 290px;
+  border-radius: 10px;
+}
+
+.header-title{
+  margin: 40px 5px 20px 5px!important;
+}
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: ;
+}
+
+.form-label {
+  margin-top: 10px!important;
+  text-align: left!important;
+}
+
+input.name {
+  text-transform: uppercase;
+}
