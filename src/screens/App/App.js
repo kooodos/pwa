@@ -27,14 +27,8 @@ class App extends React.Component {
 
     this.state = {
       userToken: localStorage.getItem("sessionToken"),
-      loading: true,
-      ad2hs: true
+      loading: true
     }
-  }
-
-
-  handleDismiss = () => {
-    this.setState({ ad2hs: false })
   }
 
   logoutSession() {
@@ -87,13 +81,7 @@ class App extends React.Component {
                   { userToken ? <Route path="/my_kooodos" component={MyKooodos} /> : <Redirect to='/' /> }
                 </Switch>
               </Container>
-              { this.state.ad2hs ?
-                <Message className="add-button" onDismiss={this.handleDismiss}>
-                  <Message.Content>
-                    <span>Add kooodos to Home screen</span>
-                  </Message.Content>
-                </Message> : null
-              }
+
           </div>
         </Router>
     );
