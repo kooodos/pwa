@@ -8,6 +8,7 @@ export default class SliderWelcome extends Component {
   render() {
     const settings = {
       dots: true,
+      fade: true,
       infinite: true,
       speed: 500,
       slidesToShow: 1,
@@ -18,6 +19,7 @@ export default class SliderWelcome extends Component {
         <Slider {...settings}>
           <div>
             <div className="dot">
+              <div className="dot-number">1</div>
               <img src="https://img.icons8.com/bubbles/2x/gift.png" alt="" />
             </div>
             <div className="dot-text">
@@ -26,7 +28,8 @@ export default class SliderWelcome extends Component {
           </div>
           <div>
             <div className="dot">
-              <img src="https://www.bbuzzart.com/static/images/img-about-sell-step-2.png" alt="" />
+              <div className="dot-number">2</div>
+              <img src="https://images.squarespace-cdn.com/content/v1/56d5bc0fc6fc08c5377bb7e2/1461101752246-FK6GIO9XLUYKDUTPQFM6/ke17ZwdGBToddI8pDm48kHhlTY0to_qtyxq77jLiHTtZw-zPPgdn4jUwVcJE1ZvWhcwhEtWJXoshNdA9f1qD7T-j82ScS_xjTqFYGqFrT72qZ_E0ELtHpOZiWcSG1QwIMeEVreGuQ8F95X5MZTW1Jw/DonateIcon.png" alt="" />
             </div>
             <div className="dot-text">
               share with the person you want to thank, appology, acknowledge.. and collect the credits
@@ -34,6 +37,7 @@ export default class SliderWelcome extends Component {
           </div>
           <div>
             <div className="dot">
+              <div className="dot-number">3</div>
               <img src="https://img.icons8.com/plasticine/2x/coffee-to-go.png" alt="" />
             </div>
             <div className="dot-text">

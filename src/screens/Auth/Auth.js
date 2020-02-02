@@ -82,6 +82,7 @@ class Auth extends Component {
 
     return (
       <div className="screen-center">
+        <KooodosLogo />
         <h1>Enter your e-mail</h1>
         <Form size='huge' key='huge' onSubmit={this.handleSubmit}>
           <Form.Field

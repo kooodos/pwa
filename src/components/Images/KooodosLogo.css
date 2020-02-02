@@ -1,0 +1,11 @@
+.logo_koodos {
+  width: 350px;
+  height: 206px;
+  opacity: 0;
+  animation-name: fadeIn;
+  animation-delay: 0s;
+  animation-duration: 2s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+
+}

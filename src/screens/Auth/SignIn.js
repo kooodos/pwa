@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import { withRouter } from "react-router-dom";
 import { Button, Form, Message } from 'semantic-ui-react'
+import KooodosLogo from '../../components/Images/KooodosLogo'
 import API from '../../components/Api';
 
 class SignIn extends Component {
@@ -68,6 +69,7 @@ class SignIn extends Component {
     return (
 
         <div className="screen-center">
+          <KooodosLogo />
           <h1>Welcome back!</h1>
             <Form
               size='huge'

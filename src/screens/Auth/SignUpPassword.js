@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import { Button, Form, Message } from 'semantic-ui-react'
+import KooodosLogo from '../../components/Images/KooodosLogo'
 import API from '../../components/Api';
 
 export default class SignUpPassword extends Component {
@@ -101,8 +102,9 @@ export default class SignUpPassword extends Component {
 
     return (
 
-      <div>
-        <h1>Password</h1>
+      <div className="screen-center">
+        <KooodosLogo />
+        <h1>Your secure password</h1>
           <Form
             size='huge'
             key='huge'

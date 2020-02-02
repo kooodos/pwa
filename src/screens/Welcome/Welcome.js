@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { Button } from 'semantic-ui-react'
+import { Button, Header } from 'semantic-ui-react'
 import Auth from '../Auth'
 import SliderWelcome from '../../components/SliderWelcome'
 import './Welcome.css'
@@ -26,8 +26,8 @@ export default class Welcome extends Component {
     return (
       <div>
         { this.state.welcome ?
-          <div>
-            <img src="/images/logo/kooodos.png" className="logo" alt="logo" />
+          <div className="screen-center">
+            <Header as="h1" className="white">How does it work?</Header>
             <SliderWelcome />
             <Button fluid size="huge" onClick={ this.toggleWelcome }>ENTER</Button>
           </div>

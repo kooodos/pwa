@@ -1,6 +1,6 @@
 import React from 'react'
 import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
-import { Container, Button } from 'semantic-ui-react'
+import { Container, Button, Message } from 'semantic-ui-react'
 import Navi from '../../components/Navi'
 import Splash from '../../components/Splash'
 import Welcome from '../Welcome'
@@ -27,8 +27,14 @@ class App extends React.Component {
 
     this.state = {
       userToken: localStorage.getItem("sessionToken"),
-      loading: true
+      loading: true,
+      ad2hs: true
     }
+  }
+
+
+  handleDismiss = () => {
+    this.setState({ ad2hs: false })
   }
 
   logoutSession() {
@@ -81,8 +87,13 @@ class App extends React.Component {
                   { userToken ? <Route path="/my_kooodos" component={MyKooodos} /> : <Redirect to='/' /> }
                 </Switch>
               </Container>
-
-              <Button className="add-button">Add to home screen</Button>
+              { this.state.ad2hs ?
+                <Message className="add-button" onDismiss={this.handleDismiss}>
+                  <Message.Content>
+                    <span>Add kooodos to Home screen</span>
+                  </Message.Content>
+                </Message> : null
+              }
           </div>
         </Router>
     );

@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import KooodosLogo from '../../components/Images/KooodosLogo'
 import API from '../../components/Api';
 import { Message } from 'semantic-ui-react'
 import OtpInput from "react-otp-input";
@@ -91,8 +92,9 @@ export default class SignUpPhoneVerification extends Component {
     const { otp, numInputs, separator, isDisabled, hasErrored, isInputNum } = this.state;
 
     return (
-      <div className="centered">
-        <h1>Otp</h1>
+      <div className="screen-center">
+        <KooodosLogo />
+        <h1>Enter the code from SMS</h1>
           <OtpInput
               inputStyle="otp"
               numInputs={numInputs}
@@ -108,7 +110,7 @@ export default class SignUpPhoneVerification extends Component {
 
         {this.state.hasErrored ?
             <Message negative>
-              { "OTP you entered was incorrect." }
+              { "OTP you entered is incorrect." }
             </Message>
           :
             null

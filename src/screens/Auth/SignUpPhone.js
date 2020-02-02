@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import { Button, Form, Message } from 'semantic-ui-react'
+import KooodosLogo from '../../components/Images/KooodosLogo'
 import API from '../../components/Api';
 import 'react-phone-number-input/style.css'
 import PhoneInput from 'react-phone-number-input'
@@ -66,8 +67,11 @@ export default class SignUpPhone extends Component {
   render() {
 
     return (
-      <div>
-        <h1>SignUp</h1>
+      <div className="screen-center">
+
+        <KooodosLogo />
+
+        <h1>Your phone number</h1>
           <Form size='huge' key='huge' onSubmit={this.handleSubmit}>
             <PhoneInput
               placeholder="Enter phone number"
@@ -75,7 +79,7 @@ export default class SignUpPhone extends Component {
               value={ this.state.phone }
               onChange={ phone => this.setState({ phone }) }
             />
-          <Button type='submit'>GO</Button>
+          <Button type='submit' style={{ margin: 15 }} className={this.state.formLoading ? 'loading' : ''} >GO</Button>
           </Form>
           {this.state.phoneFailed ?
             <Message negative>

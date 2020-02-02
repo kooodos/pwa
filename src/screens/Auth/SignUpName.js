@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import { Button, Form } from 'semantic-ui-react'
+import KooodosLogo from '../../components/Images/KooodosLogo'
 import API from '../../components/Api';
 
 export default class SignUpName extends Component {
@@ -66,13 +67,13 @@ export default class SignUpName extends Component {
 
     return (
 
-      <div>
+      <div className="screen-center">
+        <KooodosLogo />
         <h1>Your name</h1>
           <Form
             size='huge'
             key='huge'
             onSubmit={this.handleSubmit}
-            className={this.state.formLoading ? 'loading' : ''}
             >
             <Form.Field
               type='text'
@@ -82,6 +83,7 @@ export default class SignUpName extends Component {
 
           <Button
             disabled = {this.state.btnDisabled}
+            className={this.state.formLoading ? 'loading' : ''} 
             type='submit'>
             GO
           </Button>
