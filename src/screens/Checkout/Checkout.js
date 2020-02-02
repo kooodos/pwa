@@ -35,7 +35,7 @@ export default class Checkout extends Component {
 
   componentDidMount() {
 
-    API.get("/order").then (response => {
+    API.get("/orders").then (response => {
       console.log("order", response.data);
       this.setState({
         orders: response.data
@@ -66,7 +66,7 @@ export default class Checkout extends Component {
 
     this.setState({ isLoadingOrder: true })
 
-    API.post("/order/?product_id=" + product_id + "&operation=" + operation).then (response => {
+    API.post("/orders/?product_id=" + product_id + "&operation=" + operation).then (response => {
       console.log("new order", response.data);
       this.setState({
         orders: response.data

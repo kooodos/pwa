@@ -1,14 +1,7 @@
 import React, {Component} from 'react'
-import { Placeholder, Card } from 'semantic-ui-react'
 import './MyKooodos.css'
 
 export default class KooodosInspirationsList extends Component {
-
-  constructor(props) {
-    super(props);
-
-  }
-
 
   render() {
 

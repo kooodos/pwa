@@ -1,0 +1,74 @@
+#custom-overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100000;
+  width:100%;
+  background: #EEE;
+}
+
+
+.flb {
+  background: rgb(224,57,151);
+  background: linear-gradient(143deg, rgba(224,57,151,1) 0%, rgba(191,0,166,1) 100%)!important;
+  height:100%;
+  width:100%;
+  animation: pulse 1s linear forwards;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.Aligner-item {
+  max-width: 50%;
+}
+.Aligner-item--top {
+  align-self: flex-start;
+}
+.Aligner-item--bottom {
+  align-self: flex-end;
+}
+#custom-overlay img {
+  display: block;
+  margin: 0 auto;
+  width: 300px;
+  height: auto;
+}
+
+.img-splash {
+  opacity: 0;
+  animation-name: fadeIn;
+  animation-delay: 0.5s;
+  animation-duration: 4s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+.mission {
+  opacity: 0;
+  animation-name: fadeIn;
+  animation-delay: 1.5s;
+  animation-duration: 2s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  color: #DDD!important;
+  font-weight: 600;
+  position: absolute;
+  top: -15px!important;
+}
+
+.p-m-small {
+  margin: 0!important;
+  padding: 0!important;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}

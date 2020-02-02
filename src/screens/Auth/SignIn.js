@@ -73,14 +73,13 @@ class SignIn extends Component {
               size='huge'
               key='huge'
               onSubmit={this.handleSubmit}
-              className={this.state.formLoading ? 'loading' : ''}
               >
               <Form.Field
                 type='password'
                 control='input'
                 onChange={this.handleChange}
               />
-            <Button type='submit'>GO</Button>
+            <Button type='submit' className={this.state.formLoading ? 'loading' : ''}>GO</Button>
             </Form>
             {this.state.loginFailed ?
               <Message negative>

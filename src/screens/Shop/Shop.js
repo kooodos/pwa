@@ -32,7 +32,7 @@ export default class Shop extends Component {
         isLoading: false
       })
 
-      API.get("/order").then (response => {
+      API.get("/orders").then (response => {
         console.log("order", response.data);
 
         this.setState({
@@ -65,7 +65,7 @@ export default class Shop extends Component {
 
     console.log("adding to basket product: ", product_id)
 
-    API.post("/order/?product_id=" + product_id + "&operation=add").then (response => {
+    API.post("/orders/?product_id=" + product_id + "&operation=add").then (response => {
       console.log("new order", response.data);
       this.setState({
         orders: response.data.order_items,
@@ -90,6 +90,7 @@ export default class Shop extends Component {
   }
 
   render() {
+
     return (
       <div>
         <Header size='medium' className={'header-title'} textAlign='left' color='grey'>Pick a gift</Header>

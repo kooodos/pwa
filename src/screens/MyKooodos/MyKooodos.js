@@ -16,6 +16,7 @@ export default class MyKooodos extends Component {
       kooodos_shared: []
     }
 
+    this.handleShareSubmit=this.handleShareSubmit.bind(this);
     this.fetchKooodos=this.fetchKooodos.bind(this);
   }
 
@@ -44,6 +45,27 @@ export default class MyKooodos extends Component {
   handleShareSubmit(id, share) {
     console.log("kooodos id:", id);
     console.log("share details:", share);
+
+    this.setState({ loading: true })
+
+    API.post("/my_kooodos",
+      {
+        "id": share.id,
+        "msg_text": share.msg_text,
+        "email": share.email
+      }).then (response => {
+
+      console.log("my_kooodos", response.data);
+
+      this.setState({
+        loading: false,
+        kooodos_new: response.data
+       })
+
+    }).catch(error => {
+        console.log("kooodos error", error);
+    })
+
   }
 
 
@@ -63,7 +85,7 @@ export default class MyKooodos extends Component {
       {
         menuItem: (
           <Menu.Item key='new' onClick={()=> this.fetchKooodos("kooodos_new")}>
-            NEW<Label color="pink">15</Label>
+            NEW<Label color="pink">{ this.state.kooodos_new.length }</Label>
           </Menu.Item>
         ),
         render: () => <MyKooodosList kooodos={this.state.kooodos_new} loading={this.state.loading} handleShareSubmit={this.handleShareSubmit} />

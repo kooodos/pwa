@@ -54,3 +54,7 @@ textarea {
 .email_tags {
   margin: 5px;
 }
+
+.dark_color {
+  color: #999!important;
+}

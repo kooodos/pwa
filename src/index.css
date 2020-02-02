@@ -5,9 +5,30 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #FFF;
+}
+
+#root {
+    height: 100%;
+}
+
+.kooodos-background {
+  background: rgb(224,57,151);
+  background: linear-gradient(143deg, rgba(224,57,151,1) 0%, rgba(191,0,166,1) 100%)!important;
+  color: #FFF!important;
+  width: 100%;
+  height: 100%;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.mr-1 {
+  margin-right: 5px!important;
+}
+
+.mt-2 {
+  margin-top: 25px!important;
 }

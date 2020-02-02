@@ -1,8 +1,8 @@
-import _ from 'lodash'
 import React, {Component} from 'react'
-import { Card, Icon, Image, Divider, Header, Label, Input, Form, Button, Search } from 'semantic-ui-react'
+import { Card, Icon, Image, Divider, Header, Label, Input, Form, Button } from 'semantic-ui-react'
 import API from '../../components/Api';
 import KooodosInspirationsList from './KooodosInspirationsList'
+import MyKooodosShareConfirmation from './MyKooodosShareConfirmation'
 import './MyKooodos.css'
 
 export default class MyKooodosItem extends Component {
@@ -23,7 +23,8 @@ export default class MyKooodosItem extends Component {
       email_list: [],
       email_results: [],
       send_loading: false,
-      send_disabled: true
+      send_disabled: true,
+      showConfirmation: false
     }
 
 
@@ -31,7 +32,10 @@ export default class MyKooodosItem extends Component {
     this.handleOnChange = this.handleOnChange.bind(this);
     this.useInspiration=this.useInspiration.bind(this);
     this.setEmail=this.setEmail.bind(this);
+    this.showShareConfirmation=this.showShareConfirmation.bind(this);
   }
+
+
 
   componentDidMount() {
 
@@ -47,33 +51,37 @@ export default class MyKooodosItem extends Component {
   }
 
 
+  showShareConfirmation(act) {
+
+    this.setState({ showConfirmation: act });
+  }
+
+
   handleOnChange(event) {
 
-      const { share } = { ...this.state };
-      const currentState = share;
-      const { name, value } = event.target;
+     const { share } = { ...this.state };
+     const currentState = share;
+     const { name, value } = event.target;
 
-      currentState[name] = value;
+     currentState[name] = value;
 
-      this.setState({ share: currentState }, () => { this.checkForm()});
+     this.setState({ share: currentState }, () => { this.checkForm()});
 
-      if (event.target.name === "email" && event.target.value.length > 2) {
+     if (event.target.name === "email" && event.target.value.length > 2) {
 
-        // search results will be pushed here
-        let matches = [];
+       let matches = [];
+       const email_list = this.state.email_list
 
-        // looping throuth posts to fing the word
-        const email_list = this.state.email_list
+       email_list.forEach((email) => {
+           if (email["email"].includes(event.target.value)) matches.push(email);
+       });
 
-        email_list.forEach((email) => {
-            if (email["email"].includes(event.target.value)) matches.push(email);
-        });
+       this.setState({ email_results: matches })
 
-        this.setState({ email_results: matches })
-
-        console.log("search_result", matches)
-      }
+       console.log("search_result", matches)
+     }
   }
+
 
   setEmail(email) {
 
@@ -165,10 +173,12 @@ export default class MyKooodosItem extends Component {
 
     const emails = this.state.email_results.map((item) => <Label as='a' className="email_tags" size="small" onClick={() => this.setEmail(item.email)} key={item.id}>{item.email}</Label> );
 
-    console.log("list of emails", emails)
-
     return (
+
           <div>
+            { this.state.showConfirmation ?
+              <MyKooodosShareConfirmation showShareConfirmation={this.showShareConfirmation} details={this.props.details} share={this.state.share} handleShareSubmit={this.props.handleShareSubmit} /> : null
+            }
             <Divider horizontal>
               <Header as='h4'>
                 <Label color="grey" pointing="below">
@@ -212,7 +222,7 @@ export default class MyKooodosItem extends Component {
               </Card.Content>
 
               <Card.Content extra>
-                <Button disabled={this.state.send_disabled} loading={this.state.send_loading} onClick={() => this.props.handleShareSubmit(this.props.details.id, this.state.share)} fluid color='pink'>SHARE</Button>
+                <Button disabled={this.state.send_disabled} loading={this.state.send_loading} onClick={() => this.showShareConfirmation(true) } fluid color='pink'>SHARE</Button>
               </Card.Content>
             </Card>
           </div>

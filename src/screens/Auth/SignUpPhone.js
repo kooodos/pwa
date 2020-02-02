@@ -34,16 +34,18 @@ export default class SignUpPhone extends Component {
 
       this.setState({formLoading: true });
 
-      API.post("/auth/otp/send?msisdn=" + this.state.phone)
+      API.patch("/auth/signup/?email=" + this.state.email,
+      {
+        "phone": this.state.phone
+      })
       .then (response => {
 
-        console.log(response.data);
+        console.log("Signup step: Phone", response.data);
 
         this.props.history.push({
-          pathname: '/sign-up-otp',
+          pathname: '/sign-up-phone-verification',
           state: {
-            email: this.state.email,
-            phone: this.state.phone
+            email: this.state.email
           }
         });
       })

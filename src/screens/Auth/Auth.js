@@ -2,8 +2,9 @@ import React, {Component} from 'react'
 import { Button, Form, Message } from 'semantic-ui-react'
 import { withRouter} from 'react-router-dom'
 import KooodosLogo from '../../components/Images/KooodosLogo'
-import API from '../../components/Api'
+import './Auth.css'
 
+import API from '../../components/Api'
 
 class Auth extends Component {
 
@@ -13,6 +14,7 @@ class Auth extends Component {
       email: '',
       password: '',
       phone: '',
+      formLoading: false,
       emailErr: false,
       btnDisabled: true,
       msgErrStatus: false,
@@ -39,10 +41,13 @@ class Auth extends Component {
 
   handleSubmit(event) {
 
-    API.get("/auth/check_account_by_email?email=" + this.state.email)
+    this.setState({ formLoading: true })
+
+    API.get("/auth/check_account_by_email/?email=" + this.state.email)
     .then (response => {
-      console.log(response.data);
-      console.log(this.state.email);
+      console.log("Auth", response.data);
+
+      this.setState({ formLoading: false })
 
       if (response.data.accountExists === true && response.data.isActive === true) {
         this.props.history.push({
@@ -50,11 +55,19 @@ class Auth extends Component {
           state: { email: this.state.email }
         });
       } else {
-        this.props.history.push({
-          pathname: '/sign-up-phone',
-          state: { email: this.state.email }
+
+        API.post("/auth/signup/?email=" + this.state.email).then (response => {
+
+          console.log("Signup step: Create User", response.data);
+          this.props.history.push({
+            pathname: '/sign-up-phone',
+            state: { email: this.state.email }
+          });
+
+        }).catch(error => {
+            console.log("User creation error", error);
         });
-      }
+      };
 
     })
     .catch(error => {
@@ -78,7 +91,7 @@ class Auth extends Component {
             onChange={this.handleChange}
           />
 
-        <Button disabled={this.state.btnDisabled} type='submit'>GO</Button>
+        <Button disabled={this.state.btnDisabled} className={this.state.formLoading ? 'loading' : ''} type='submit'>GO</Button>
         </Form>
         {this.state.msgErrStatus ?
           <Message negative>

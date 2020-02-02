@@ -4,7 +4,7 @@ import { Message } from 'semantic-ui-react'
 import OtpInput from "react-otp-input";
 import './Auth.css';
 
-export default class SignOtp extends Component {
+export default class SignUpPhoneVerification extends Component {
 
   constructor(props) {
     super(props);
@@ -58,19 +58,16 @@ export default class SignOtp extends Component {
 
     this.setState({formLoading: true });
 
-    API.post("/auth/otp/verify?otp=" + otp)
+    API.patch("/auth/signup/?email=" + this.state.email,
+    {
+      "otp": otp
+    })
     .then (response => {
 
-      console.log(response.data);
-
-      API.patch("/auth/signup",
-      {
-        "email": this.state.email,
-        "phone": this.state.phone
-      })
+      console.log("Signup step: OTP", response.data);
 
       this.props.history.push({
-        pathname: '/sign-up-password',
+        pathname: '/sign-up-name',
         state: {
           email: this.state.email
         }

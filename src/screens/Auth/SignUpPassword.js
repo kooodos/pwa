@@ -12,13 +12,12 @@ export default class SignUpPassword extends Component {
       btnDisabled: true,
       formLoading: '',
       email: this.props.location.state.email,
-      phone: this.props.location.state.phone,
       password: '',
       testLength: 'error',
       testUpper: 'error'
     }
 
-    console.log(this.state)
+    console.log(this.state);
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -60,22 +59,34 @@ export default class SignUpPassword extends Component {
 
     this.setState({formLoading: true });
 
-    API.patch("/auth/signup",
+    API.patch("/auth/signup/?email=" + this.state.email,
     {
-      "email": this.state.email,
       "passsword": this.state.password
     })
     .then (response => {
 
-      console.log(response.data);
+      console.log("Signup step: password", response.data);
 
-      localStorage.setItem('sessionToken', response.data.sessionToken);
+      API.post("/auth/signin",
+      {
+        "email": this.state.email,
+        "passsword": this.state.password
+      }).then (response => {
+        console.log("SignIn", response.data.sessionToken);
 
-      this.props.handleLogin();
+        localStorage.setItem('sessionToken', response.data.sessionToken);
 
-      this.props.history.push({
-        pathname: '/'
-      });
+        this.props.handleLogin();
+
+        this.props.history.push({
+          pathname: '/'
+        });
+
+      }).catch(error => {
+          console.log("SignIn error", error);
+      })
+
+
     })
     .catch(error => {
         console.log("login error", error);

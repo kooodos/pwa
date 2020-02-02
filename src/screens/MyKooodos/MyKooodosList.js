@@ -1,15 +1,10 @@
 import React, {Component} from 'react'
-import { Tab, Item } from 'semantic-ui-react'
+import { Message } from 'semantic-ui-react'
 import './MyKooodos.css'
 import MyKooodosListLoading from './MyKooodosListLoading'
 import MyKooodosItem from './MyKooodosItem'
 
 export default class MyKooodosList extends Component {
-
-  constructor(props) {
-    super(props);
-
-  }
 
   render() {
 
@@ -21,11 +16,13 @@ export default class MyKooodosList extends Component {
       this.props.loading ?
         <MyKooodosListLoading />
         :
-        <div className={ 'kooodos-list' }>
-          { kooodos }
+        <div>
+          { this.props.kooodos.length ?
+            <div className={ 'kooodos-list' }>{ kooodos }</div>
+          :
+            <Message color="pink" className="mt-2">You don't Kooodos. It's time to purchase & share one :) </Message>
+          }
         </div>
-
-
     )
   }
 }
