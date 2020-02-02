@@ -1,0 +1,48 @@
+.dot {
+  height: 200px;
+  width: 200px;
+  background-color: #FFF;
+  border-radius: 50%;
+  display: inline-block;
+  color: #888;
+}
+
+.dot-text {
+  display: block;
+  font-size: 120%;
+  margin-top: 10px;
+}
+
+
+.dot img {
+  width: 140px;
+  height: 140px;
+  margin: 30px 0 0 30px;
+}
+
+.slick-dots li button {
+  background-color: rgba(255,255,255,0.5)!important;
+  border-radius: 50%;
+  font-size: 8px!important;
+  content: ''!important;
+}
+
+.slick-dots li.slick-active button {
+  background-color: rgba(255,255,255,0.8)!important;
+}
+
+
+.slick-dots {
+  bottom: -38px!important;
+  content: ''!important;
+}
+
+.slider {
+  display: block;
+  padding: 15px 20px;
+  margin-bottom: 60px;
+}
+
+button.button {
+  background-color: #FFF!important;
+}

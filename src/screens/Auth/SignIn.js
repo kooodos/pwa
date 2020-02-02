@@ -67,7 +67,7 @@ class SignIn extends Component {
 
     return (
 
-        <div>
+        <div className="screen-center">
           <h1>Welcome back!</h1>
             <Form
               size='huge'

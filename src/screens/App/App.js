@@ -1,6 +1,6 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
-import { Container } from 'semantic-ui-react'
+import { Container, Button } from 'semantic-ui-react'
 import Navi from '../../components/Navi'
 import Splash from '../../components/Splash'
 import Welcome from '../Welcome'
@@ -57,7 +57,7 @@ class App extends React.Component {
     console.log("Token on loading the main component...", userToken)
 
     return (
-      
+
         <Router>
           <div id="App" className={`App ${userToken ? '': 'kooodos-background'}`}>
 
@@ -81,6 +81,8 @@ class App extends React.Component {
                   { userToken ? <Route path="/my_kooodos" component={MyKooodos} /> : <Redirect to='/' /> }
                 </Switch>
               </Container>
+
+              <Button className="add-button">Add to home screen</Button>
           </div>
         </Router>
     );

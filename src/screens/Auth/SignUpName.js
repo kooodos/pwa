@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { Button, Form, Message } from 'semantic-ui-react'
+import { Button, Form } from 'semantic-ui-react'
 import API from '../../components/Api';
 
 export default class SignUpName extends Component {

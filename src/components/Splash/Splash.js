@@ -19,7 +19,6 @@ export default class Splash extends Component {
   }
 
   render() {
-    const { active } = this.state
 
     return (
       <div id="custom-overlay">
@@ -27,10 +26,10 @@ export default class Splash extends Component {
           <Container>
             <Grid className="p-m-small">
               <Grid.Row className="p-m-small">
-                <img src="/images/logo/kooodos.png" className="img-splash" />
+                <img src="/images/logo/kooodos_white.png" className="img-splash" alt="logo" />
               </Grid.Row>
               <Grid.Row centered className="p-m-small">
-                <span className="mission">Spread the love.</span>
+                <span className="mission">spread positive emotions.</span>
               </Grid.Row>
             </Grid>
           </Container>

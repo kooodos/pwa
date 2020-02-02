@@ -16,8 +16,10 @@
     "react-phone-number-input": "^3.0.13",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.3.0",
+    "react-slick": "^0.25.2",
     "semantic-ui": "^2.4.2",
-    "semantic-ui-react": "^0.88.2"
+    "semantic-ui-react": "^0.88.2",
+    "slick-carousel": "^1.8.1"
   },
   "scripts": {
     "start": "react-scripts start",

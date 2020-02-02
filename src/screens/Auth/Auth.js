@@ -81,8 +81,8 @@ class Auth extends Component {
   render() {
 
     return (
-      <div>
-        <KooodosLogo />
+      <div className="screen-center">
+        <h1>Enter your e-mail</h1>
         <Form size='huge' key='huge' onSubmit={this.handleSubmit}>
           <Form.Field
             className={this.state.emailErr ? 'error' : ''}
